@@ -4,7 +4,7 @@ ADD *.tex /
 
 ADD build.sh /
 
-VOLUME /output
+VOLUME /notes
 
 WORKDIR /
 
