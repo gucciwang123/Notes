@@ -24,9 +24,9 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source_file: 'output/*'
-        destination_repo: 'gucciwang123/gucciwang123.github.io'
-        user_email: 'wangtyler123@gmail.com'
-        user_name: 'gucciwang123'
-        commit_message: 'Updated notes'
+          destination_repo: 'gucciwang123/gucciwang123.github.io'
+          user_email: 'wangtyler123@gmail.com'
+          user_name: 'gucciwang123'
+          commit_message: 'Updated notes'
         
 
