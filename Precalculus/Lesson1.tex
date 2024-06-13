@@ -17,6 +17,7 @@
 \usepackage{pgfplots}
 \usepackage{hyperref}
 \usepackage{wrapfig}
+\usepackage{enumitem}
 
 \usepackage[T1]{fontenc}
 
@@ -180,7 +181,7 @@ The next symbol I'd like to focus on is the set difference. Very similar to subt
 	\begin{tikzpicture}
 		\draw[ultra thick, draw=red, fill=red, fill opacity=.3] (0,0) circle (3)
 			node[black,draw=red, fill=red, minimum size=0.8cm] {$A$};
-		\draw[ultra thick, draw=blue, fill=blue!50] (-1,1.5) circle (0.9)
+		\draw[ultra thick, draw=blue, fill=blue!50] (-2,1) circle (1.5)
 			node[black,draw=blue, fill=blue!30, minimum size=0.8cm] {$B$};
 	\end{tikzpicture}}
 	\caption{$A\setminus B$ defined in red}
@@ -353,10 +354,12 @@ We can make another example of this idea: suppose we define a statement $Q(n)$ a
 \end{theorem}
 \begin{proof}
 	This proof will be by contradiction. First assume there exists $P(n)$ that satisfies the above conditions, where for some $k\in\nat$, $P(k)$ is false. 
-	Then define $S=\{P(n):n\in\nat\}$. Letting $F$ be the set of false statements, using our assumptions, there exists some $F$ that must be non-empty. 
+	Then define 
+	$$S=\{P(n):n\in\nat\}.$$
+	Letting $F$ be the set of false statements, using our assumptions, there exists some $F$, for a certain set of $S$ that is non-empty. 
 	Then by definition, it follows that $F\subseteq S$. Since $S$ is well-ordered by proposition \eqref{prop:well-order}, $F$ must have a least element $f_l$ with index $n_l$. 
 	Since $f_l\neq P(1)$, by assumption $P(1)$ is true, there must exist $P(n_l-1)$. 
-	But since $P(n_l-1)\notin F$ implies $P(n_l-1)$ is true because $P(n_l-1)$ is less than the least element, this also implies $P(n_l)$ is also true by the inductive step, which is a contradiction of our original assumption, hence $F=\{\varnothing\}$. 
+	But since $P(n_l-1)\notin F$ implies $P(n_l-1)$ is true since $P(n_l-1)$ is less than the least element, this also implies $P(n_l)$ is also true by the inductive step assumption, which is a contradiction of our original assumption, hence $F=\{\varnothing\}$. 
 	This concludes our proof of induction.
 \end{proof}
 
@@ -378,8 +381,54 @@ To summarize we can simply prove that some base case is true, by then proving th
 
 \begin{ex}
 	In this example, we'd like to prove $n^2<2^{n+1}$ for any $n\in\nat$. This will be a little less straightforward than in our previous examples, but what is the same is proving the base case is true, which is trivial by substitution of 1 for $n$. For our inductive step, we assume for some $k$, $k^2<2^{k+1}$. Then for
-	$$(k+1)^2=k^2+2k+1$$
+	$$2^{k+2}=2\cdot 2^{k+1}>k^2+2^{k+1}$$
+	If we notice, what we want on the right side is 
+	$$(k+1)^2=k^2+2k+1.$$
+	Somehow, we must convert the $2^{k+1}$ to $2k+1$. We could do this by proving 
+	$$2^{k+1}>2k+1$$ 
+	for all $k\in\nat$, which 
+	$$2^{k+2}>(k+1)^2$$ 
+	would immediately follow.
+	To prove the previous statement, we leverage induction again. By substituting $k=1$, we find the base case is trivial. Then for our inductive step, we let be $m\in\nat$ such that $2^{m+1}>2m+1$.
+	Then
+	$$2^{m+2}=2\cdot2^{m+1}>2(2m+1)=2m+2m+2.$$
+	Since $m\ge 1$,
+	$$2m+2m+2>2m+4>2m+2+1=2(m+1)+1.$$
+	Therefore, by induction, we conclude 
+	$$2^{k+1}>2k+1$$
+	hence
+	$$2^{k+2}>k^2+2^{k+1}>k^2+2k=1=(k+1)^2.$$
+	Therefore, by induction, we claim $n^2<2^{n+1}$.
 \end{ex}
+
+\section{Exercises}
+\subsection{Set Theory}
+1. Let $A=\{1,\beta,20\}$, $B=\{\text{two},\beta,20\},C=\{20,\text{one},\alpha\}$. Give the sets resulting from
+\begin{enumerate}[label=\alph*)]
+	\item $A \cup B$
+	\item $A \cap B$
+	\item $C \setminus A$
+	\item $A \cup (B\cap C)$
+\end{enumerate}
+2. Define each of the following sets in set builder notation.
+\begin{enumerate}[label=\alph*)]
+	\item The interval $-5<x<3$ or $-10<x<-3$.
+	\item The set of all even numbers.
+	\item The set of all positive perfect squares (excluding 0).
+\end{enumerate}
+\subsection{Induction}
+3. Let $q$ be any real number such that $q\neq1$. Show, for any $n\in\nat$,
+$$\sum_{k=1}^nq^k=\frac{q^n-1}{q-1}.$$
+(hint: If you've never seen the summation notation, $\sum_{k=1}^nq^k=q+q^2+...+q^n$.)
+
+4. Prove $5^n+5<5^{n+1}$ for all $n\in\nat$.
+
+5 \textbf{(Challenge)}. For any set statement, $P(n)$ for $n\in\nat$. Suppose 
+\begin{enumerate}
+	\item $P(1)$ is true
+	\item For $n\in\nat$, $P(n)$ implies $P(n+2)$
+\end{enumerate}
+Prove $P(n)$ is true for every positive odd integer. 
 
 \end{document}
 
