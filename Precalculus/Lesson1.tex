@@ -127,10 +127,10 @@
 \maketitle
 \thispagestyle{plain}
 \section{Set Theory}
-Often in mathematics, we like to group abstract things, also known as a mathematical object, into sets. A mathematical object is, simply put, a \textit{thing} we like to talk about in maths, such as functions, numbers, matrices, other sets, etc.
+Often in mathematics, we like to group abstract things, also known as a mathematical object, into sets. A mathematical object is, simply put, a \textit{thing} we like to talk about in math, such as functions, numbers, matrices, other sets, etc.
 Although seemingly simple, these sets are incredibly powerful; so powerful in fact that most modern mathematics today is built off the backbones of set theory. 
-For our purposes here, we only need a very elementary understanding of set theory, as a deeper dive, through fascinating, can be very confusing, difficult, and at times controversial.\footnote{This controversy mostly arises from the infamous \href{https://en.wikipedia.org/wiki/Axiom_of_choice}{axiom of choice}. 
-Simply put, given any set of sets that are not empty, one can always find a way to way to map a child set to an element in that set. Though seemingly simple, due to its complications with infinite sets, it has deep consequences in all mathematics and how we deal with infinities in the universe.}
+For our purposes here, we only need a very elementary understanding of set theory, as a deeper dive, though fascinating, can be very confusing, difficult, and at times controversial.\footnote{This controversy mostly arises from the infamous \href{https://en.wikipedia.org/wiki/Axiom_of_choice}{axiom of choice}. 
+Simply put, given any set of sets that are not empty, one can always find a way to way to map a child set to an element in that child set. Though seemingly simple, due to its complications with infinite sets, it has deep consequences in all mathematics and how we deal with infinities in the universe.}
 \subsection{Notation}
 Before we move any further, we should get some basic notation out of the way, below is a list of all of the important symbols that we will be using in this class:
 \begin{center}
@@ -177,8 +177,8 @@ Of the following, let us first draw our attention to the idea of a subset. A sub
 	\caption{Here we claim $B\subset A$}
 	\label{fig:subset}
 \end{figure}
-As you may have noticed, I've decided to use $\subset$ as opposed to $\subseteq$ in the figure. Although both would have been equally valid, I specifically the former to shed light on the fact the two sets $B$ and $A$ are not equal. 
-Similar to $>$ and $\ge$, the line underneath simply implies the existence of a subset that is equal to the original set.\footnote{It is important to note, however, in certain texts, the distinction is not made between proper and non-proper subsets, and the symbol $\subset$ is used for either case. In all my texts, I will be making this distinction and $\subset$ will only refer to proper subsets.}
+As you may have noticed, I've decided to use $\subset$ as opposed to $\subseteq$ in the figure. Although both would have been equally valid, I specifically chose the former to shed light on the fact the two sets $B$ and $A$ are not equal. 
+Similar to $>$ and $\ge$, the line underneath simply implies the possibility that the subset is equal to the original set.\footnote{It is important to note, however, in certain texts, the distinction is not made between proper and non-proper subsets, and the symbol $\subset$ is used for either case. In all my texts, I will be making this distinction and $\subset$ will only refer to proper subsets.}
 
 The next symbol I'd like to focus on is the set difference. Very similar to subtraction, if we have two sets $A$ and $B$, $A\setminus B$ is simply defined as the set of elements that are in $A$, but not in $B$ as shown in figure \eqref{fig:diff}
 \begin{figure}[h]
@@ -211,9 +211,9 @@ The idea of the intercept or union can be shown most clearly with a Venn diagram
 	\label{fig:union}
 \end{figure}
 From here, it is clear that when taking the union of the two sets, we are essentially \textit{adding} the two sets together, or other words, every element $x\in A\cup B$ is a member of either in $A$ \textbf{or} $B$.
-An important note here is that a set doesn't contain duplicates of one object, therefore, when taking the union, an object is only included once in the output.
+An important note here is that a set doesn't contain duplicates of an object, therefore, when taking the union, an object is only included once in the output.
 
-Then the intersect is the region where every element $x\in A\cap B$ is either in $A$ \textbf{and} $B$.\footnote{the intersect also bears stark resemblance with an elementary operation, which as may have assumed, is multiplication. 
+Then the intersect is the region where every element $x\in A\cap B$ is both in $A$ \textbf{and} $B$.\footnote{the intersect also bears stark resemblance with an elementary operation, which as may have assumed, is multiplication. 
 We won't get into the details here but just understand, that it follows many of the same properties as multiplication}
 I emphasize the "and" and "or" parts of the previous statements since I believe it's important to see the relationship between these very mathematical ideas and words we use in our everyday lives.\footnote{
 it is important to note, however, that the or used in this case is slightly different from the or we use in everyday life: mainly because in everyday life, we tend to deal more with exclusive or, where the or we deal with in math is non-exclusive. 
@@ -227,10 +227,10 @@ The complement of a set can be thought of exactly as the word \textbf{not}.
 		\draw[ultra thick, draw=red, fill=red!50] (0,0) circle (3) node[black,draw=red, fill=red!40, minimum size=0.8cm] {$A$};
 		\draw (-3,3) node[ultra thick, black, draw=blue, fill=blue!30, minimum size=0.8cm] {$\overline A$};
 	\end{tikzpicture}}
-	\caption{}
+	\caption{If the entire square is $B$, then $\overline A, A\subseteq B$}
 	\label{fig:not}
 \end{figure}
-We can generalize figure \eqref{fig:not} by saying, that every $x\notin  A$ must be in $\overline A$. It is important to note here that generally, when talking about a compliment, you need to know what you are "complementing" over, in essence, you must know that your set is a subset of something. Unless you go into more advanced mathematics, generally you can assume that this will be the real numbers, or in more isolated cases, the set of complex numbers, but nothing more than that. 
+We can generalize figure \eqref{fig:not} by saying, that every $x\notin  A$ must be in $\overline A$. It is important to note here that generally, when talking about a compliment, you need to know what you are "complementing" over, in essence, you must know that your set is a subset of a larger set. Unless you go into more advanced mathematics, generally you can assume that this will be the real numbers, or in more isolated cases, the set of complex numbers, but nothing more than that. 
 
 \subsection{Defining Sets}
 The last two notations in the chart are simply ways in which we can define new sets. Let's say we are trying to define a set that consists of only points on the unit circle. So in this case we would be defining a set of ordered pairs. We first note that any point that lies on a circle satisfies
@@ -238,17 +238,17 @@ $$x^2+y^2=1.$$
 Then we can simply define $S$ as
 $$S=\{(x,y) : x^2+y^2=1\}.$$
 This might still seem confusing, but typically colons in math can be read as \textit{such that} or \textit{given}, hence the statement above is equivalent to saying: 
-\textit{The set S is equivalent to the set of all real ordered pairs given they satisfy $x^2+y^2=1$}. 
-This notation is known as set builder notation, since in essence, we are building a set base on a given condition.
+\textit{the set S is equivalent to the set of all real ordered pairs given they satisfy $x^2+y^2=1$}. 
+This notation is known as set builder notation, since in essence, we are building a set based on a given set of conditions.
 Sometimes we like to be a bit more specific and explicitly declare that $(x,y)$ is an ordered pair and write
 $$S=\{(x,y)\in \real^2 : x^2+y^2=1\}.$$
 where $\real^2$ is the set of all real ordered paris.
 
-We then draw our attention to an alternative way to define sets which is interval notation. Generally, in precalc, you will see this more often, as it is a quick and easy way to define a set on a given interval. Let's say we are trying to define a set $S$, where $S$ is the set of all reals between 2 and 5, excluding 2 and 5. Then we write
+We then draw our attention to an alternative way to define sets which is interval notation. Generally, in precalc, you will see this more often, as it is a quick and easy way to define a set on a given interval. Let's say we are trying to define a set $S$, where $S$ is the set of all reals between 2 and 5, excluding the values 2 and 5 (the endpoints). Then we write
 $$S=(2,5).$$
 Alternatively, we can change the parentheses to square brackets, where then we would have
-$$S=(2,5)=\{x : 2 \le x \le 5\}.$$
-We see here that where square parentheses correspond to strict inequality, square brackets correspond to a non-strict inequality. We can also mix and match and define sets like
+$$S=[2,5]=\{x : 2 \le x \le 5\}.$$
+We see here that where parentheses correspond to strict inequality, square brackets correspond to a non-strict inequality. We can also mix and match and define sets like
 $$[1,5)=\{x : 1 \le x < 5\}$$
 or we can use it in combination with the union and intersect, to combine multiple intervals such that
 $$[1,5)\cup (6,10]=\{x : 1 \le x < 5 \text{ or } 6 < x \le 10\}$$
@@ -285,40 +285,38 @@ or in other words, positive integers without 0.\footnote{In different countries 
 
 \section{Proof by Induction}
 \subsection{Well-Ordering Principle}
-An important idea that I'd like to draw our attention to within sets is the idea that something is well-ordered. This might seem like a bunch of mathematical mumble jumble, but it has serious consequences when it comes to mathematical reasoning. But before we get to that, let's first examine what exactly this well-ordering principle is. 
+An important idea that I'd like to draw our attention to for sets is the idea that a set is well-ordered. This might seem like a bunch of mathematical mumble jumble, but it has serious consequences when it comes to mathematical reasoning. But before we get to that, let's first examine what exactly this well-ordering principle is. 
 
-Let's start by looking at the natural numbers. Our first and most obvious observation is that the natural is ordered, such that you can take any two elements of the set and declare one is larger than the other. 
-Then looking further, we realize by taking any subset of the natural, finite, or infinite, as long as this set isn't empty, there must be a least element (think of the set of positive odd numbers or the set of all primes). This is what we call a well-ordering principle; we take this as a defining property of natural numbers. 
+Let's start by looking at the natural numbers. Our first and most obvious observation is that the natural numbers are ordered, where you can take any two elements of the set and declare one is larger than the other. 
+Then looking further, we realize by taking any subset of the natural, finite, or infinite, as long as this set isn't empty, there must be a least element since no matter what is in any of these subsets, 1 is always less than anything. This is what we call a well-ordered set; we take this as a defining property of natural numbers. 
 It is important to note here that this property occurs in other types of sets other than just the natural numbers, as we will soon find, we can extend this idea to a set of ordered statements.
 
 \subsection{Example of Proof by Induction}
 This may or may not be a new idea, for some, but first, I will attempt to demonstrate the power of proof by induction by proving a very simple statement.
 \begin{ex}
-In the following example, we'd like to prove that for an arithmetic sequence, the sum is exactly
-$$\frac{n(n+1)}{2},$$
-for a sequence $1,2,3,...,n$, where $n\in\nat$. 
-
+In the following example, I'd like to show for a sequence $1,2,3,...,n$, where $n\in\nat$, the sum is exactly
+$$\frac{n(n+1)}{2}.$$
 First, let's check that our formula works by checking against a sequence $n=1$. We find the sum is 1 and
 $$\frac{1(1+1)}{2}=1$$
-hence verifying our formula works for $n=1$. Let's call this case, where $n=1$ is the base case. We can keep checking for $n=2,3,4...$, but since we want to know that this formula works for all possible $n$, this is a never-ending process, thereby making it impossible to construct a convincing argument. 
-This means we must look for another technique to prove our desired statement. Let's suppose for a minute, that for $n=m$, where $m\in\nat$, the formula is true. Then using our assumption, we claim that
+hence verifying our formula works for $n=1$. Let's call this case, where $n=1$ is the base case. We can keep checking for $n=2,3,4...$, but since we want to know that this formula works for all possible $n$, this is a never-ending process, thereby making it impossible to construct a convincing proof.
+This means we must look for another technique to prove our desired statement. Let's suppose for a minute, that for any $m\in\nat$, our formula produces the right result. Then using our assumption, we claim that
 $$1+2+...+m+m+1=(1+2+...+m)+m+1=\frac{m(m+1)}{2}+m+1$$
 Then manipulating the expression, we get
 $$\frac{m(m+1)}{2}+m+1=\frac{m(m+1)+2(m+1)}{2}=\frac{m^2+m+2m+1}{2}$$
 $$=\frac{m^2+3m+1}{2}=\frac{(m+1)(m+2)}{2}=\frac{(m+1)([m+1]+1)}{2}$$
-which is exactly the expression we would get if substituted $m+1$ into our formula. Therefore, we have proven if the formula is true for $n=m$, then it must be true for $n=m+1$. Let's call this part the inductive step.
-Here I claim, without proof, that the base case in combination with the inductive step proves by induction that our formula works for all $n$. 
-But a question remains, how exactly am I able to make such a bold conclusion?\footnote{Notice, philosophically speaking, in general everyday life, inductive reasoning is inherently flawed since your conclusions rely on possibly flawed assumptions about the past. 
+which is exactly the expression we would get if substituted $m+1$ into our formula. Therefore, we have proven if the formula is true for $m$, then it must be true for $m+1$. Let's call this part the inductive step.
+Here I claim, without proof, that the base case in combination with the inductive step proves by induction that our formula works for all $n$.
+But a question remains, how exactly am I able to make such a bold conclusion?\footnote{Philosophically speaking, in general everyday life, inductive reasoning is inherently flawed since your conclusions rely on possibly flawed assumptions about the past. 
 In math, we always want to know for certain if something is true, which contradicts what we've done here since we did exactly what I said was inherently flawed, but somehow math has a way of deductively proving that what I did here in fact is okay.}
 \end{ex}
 
 \subsection{Proof of Induction by Deduction}
 This brings us back to the well-ordered principle. First, we need to organize all of our statements into a set. This idea might seem quite unnatural, but if you think about our statements as functions that take in a natural number and output a true or false, this idea comes very naturally. 
-As in our previous example, take for instance the statement \textit{is $1+2+...+n$ equal to $\frac{n(n+1)}{2}$} as a function of $n$, called $P(n)$, where $n$ is any natural number, we now know that $P(n)$ is true for every $n$, hence the statements $P(1),P(2),P(3),...$ are all true. 
-We can make another example of this idea: suppose we define a statement $Q(n)$ as \textit{$n$ is odd}. Then we can define a set $S=\{Q(n):n\in\nat\}$. Then we know $Q(1),Q(3),Q(5),...$ is true and $Q(2),Q(4),Q(6),...$ is obviously false. Now equipt with this, we will attempt to prove our first proposition:
+As in our previous example, take for instance the statement \textbf{$1+2+...+n$ is equal to $\frac{n(n+1)}{2}$} as a function of $n$, called $P(n)$, where $n$ is any natural number, we now know that $P(n)$ is true for every $n$, hence the statements $P(1),P(2),P(3),...$ are all true. 
+We can make another example of this idea: suppose we define a statement $Q(n)$ as \textbf{$n$ is odd}. Then we can define a set $S=\{Q(n):n\in\nat\}$. Then we know $Q(1),Q(3),Q(5),...$ is true and $Q(2),Q(4),Q(6),...$ is obviously false. Now equipt with this, we will attempt to prove our first proposition:
 \begin{prop}
 \label{prop:well-order}
-	Let $P(n)$ be an arbitrary statement with argument $n\in\nat$. Define
+	Let $P(n)$ be an arbitrary statement with argument $n\in\nat$. If
 	$$S=\{P(n):n\in\nat\},$$
 	then $S$ is well-ordered.
 \end{prop}
@@ -347,9 +345,9 @@ We can make another example of this idea: suppose we define a statement $Q(n)$ a
 		\caption{}
 		\label{fig:induct:map}
 	\end{figure}
-	As shown in the diagram, we can map every natural number to a unique statement. Then by using $n$ is an index, we can order these statements so that $P(1)<P(2)$, $P(2)<P(3)$, etc. Then since $\nat$ is well-ordered, for any $A\subseteq \nat$, there must exist a least element $a_l\in A$. Since for any $m_1<m_2$, $P(m_1)<P(m_2)$, let 
+	As shown in the diagram, we can map every natural number to a unique statement. Then by using $n$ as an index, we can order these statements so that $P(1)<P(2)$, $P(2)<P(3)$, etc. Then since $\nat$ is well-ordered, for any $A\subseteq \nat$, there must exist a least element $a_l\in A$. Since for any $m_1<m_2$, $P(m_1)<P(m_2)$, let 
 	$$T=\{P(m):m\in A\},$$
-	we claim $T$ has the least element since for every $p\in A$, $a_l<p$, hence $P(a_l)<P(p)$. Since $T\subseteq S$, and $A$ is arbitrary, we see every subset of $T$ has a least element, hence concluding that $S$ must be well-ordered. 
+	we claim $T$ has the least element since for every $p\in A$, $a_l<p$, hence $P(a_l)<P(p)$. Since $T\subseteq S$ and $A$ are arbitrary, we see every subset $T$ of $S$ has a least element, hence concluding that $S$ must be well-ordered. 
 \end{proof}
 
 \begin{theorem}[Induction]
@@ -367,24 +365,24 @@ We can make another example of this idea: suppose we define a statement $Q(n)$ a
 	Letting $F$ be the set of false statements, using our assumptions, there exists some $F$, for a certain set of $S$ that is non-empty. 
 	Then by definition, it follows that $F\subseteq S$. Since $S$ is well-ordered by proposition \eqref{prop:well-order}, $F$ must have a least element $f_l$ with index $n_l$. 
 	Since $f_l\neq P(1)$, by assumption $P(1)$ is true, there must exist $P(n_l-1)$. 
-	But since $P(n_l-1)\notin F$ implies $P(n_l-1)$ is true since $P(n_l-1)$ is less than the least element, this also implies $P(n_l)$ is also true by the inductive step assumption, which is a contradiction of our original assumption, hence $F=\{\varnothing\}$. 
+	But $P(n_l-1)\notin F$, since $P(n_l-1)$ is less than the least element, implies $P(n_l-1)$ is true, this means $P(n_l)$ must also be true by the inductive step assumption, which is a contradiction of our original assumption, hence $F=\{\varnothing\}$. 
 	This concludes our proof of induction.
 \end{proof}
 
-To summarize we can simply prove that some base case is true, by then proving that $P(n)$ being true implies $P(n+1)$ is true, we can confidently claim that for every $n\in\nat$, $P(n)$ is true.
+To summarize if we can simply prove that some base case is true, by then proving that $P(n)$ being true implies $P(n+1)$ is true, we can confidently claim that for every $n\in\nat$, $P(n)$ is true.
 \subsection{More Examples}
 \begin{ex}
 	In this example, we'd like to prove $9^n-1$ is divisible by $8$ for all $n\in\mathbb{W}$. 
 	To begin, we'd first like to prove that the base case is true, and in this case, the base case is $n=0$.\footnote{For the base case, $n$ does not necessarily have to be 0, but the index of the base case is the least that is guaranteed to be true with our current approach at induction (try to prove this fact by modifying the above proof).} Since
 	$$9^0-1=0$$
-	which is divisible by 8, we can establish that our base case is true. Then assume the statement is true for some arbitrary $k$. Then there exists, by the definition of divisibility, some $m\in\integ$ such that
+	is divisible by 8, we can establish that our base case is true. Then assume the statement is true for some arbitrary $k$. Then there exists, by the definition of divisibility, some $m\in\integ$ such that
 	$$9^k-1=8m$$
 	which implies
 	$$9^k=8m+1$$
 	Then for $k+1$,
 	$$9^{k+1}-1=9(9^k)-1=9(8m+1)-1$$
 	$$=72m-8=8(9m-1)$$
-	Since by $8(9m-1)\in\integ$, this implies $9^{k+1}-1$ is divisible by 8. Therefore, by induction for all $n\in\mathbb{W}$, $9^n-1$ is divisible by 8.
+	Since $8(9m-1)\in\integ$, this implies $9^{k+1}-1$ is divisible by 8. Therefore, by induction for all $n\in\mathbb{W}$, $9^n-1$ is divisible by 8.
 \end{ex}
 
 \begin{ex}
@@ -427,11 +425,11 @@ To summarize we can simply prove that some base case is true, by then proving th
 \subsection{Induction}
 3. Let $q$ be any real number such that $q\neq1$. Show, for any $n\in\nat$,
 $$\sum_{k=1}^nq^k=\frac{q^n-1}{q-1}.$$
-(hint: If you've never seen the summation notation, $\sum_{k=1}^nq^k=q+q^2+...+q^n$.)
+(Hint: If you've never seen the summation notation, $\sum_{k=1}^nq^k=q+q^2+...+q^n$.)
 
 4. Prove $5^n+5<5^{n+1}$ for all $n\in\nat$.
 
-5 \textbf{(Challenge)}. For any statement, $P(n)$ for $n\in\nat$, suppose 
+5. \textbf{(Challenge)}. For any statement, $P(n)$ for $n\in\nat$, suppose 
 \begin{enumerate}
 	\item $P(1)$ is true
 	\item For $n\in\nat$, $P(n)$ implies $P(n+2)$
