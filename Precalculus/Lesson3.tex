@@ -1,0 +1,369 @@
+\documentclass[11pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath, esint}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{mathtools}
+\usepackage{pdfpages}
+\usepackage{fancyhdr}
+\usepackage[figurename=Figure]{caption}
+\usepackage{empheq}
+\usepackage{mdframed}
+\usepackage[a4paper, left=1in,right=1in,top=1in,bottom=0.7in,footskip=0.6in,includeheadfoot]{geometry}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{lastpage}
+\usepackage{zref-totpages}
+
+%title
+\edef\mytitle{Precalculus}
+\edef\mysubtitle{Lesson 3: Polynomials}
+\edef\mydate{June 23, 2024}
+\edef\myauthor{Tyler Wang}
+
+\usetikzlibrary{calc, backgrounds,angles, quotes}
+
+\tikzset{
+    partial ellipse/.style args={#1:#2:#3}{
+        insert path={+ (#1:#3) arc (#1:#2:#3)}
+    }
+}
+
+\setlength{\parskip}{10pt}
+\setlength{\parindent}{0pt}
+
+\fancyhf{}
+\fancyfoot[l]{\copyright \,\,\myauthor}
+\fancyhead[L]{\mysubtitle}
+\fancyhead[r]{\mytitle}
+\fancyfoot[c]{Page \thepage \hspace{1pt} of \ztotpages}
+\pagestyle{fancy}
+
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyfoot[l]{\copyright \,\,\myauthor}
+\fancyfoot[c]{Page \thepage \hspace{1pt} of \ztotpages}
+\renewcommand{\headrulewidth}{0pt}}
+
+\newmdtheoremenv{lemma}{Lemma}
+\newmdtheoremenv{prop}{Proposition}
+\newmdtheoremenv{define}{Definition}
+\newmdtheoremenv{theorem}{Theorem}
+
+\numberwithin{lemma}{section}
+\numberwithin{equation}{section}
+\numberwithin{define}{section}
+\numberwithin{prop}{section}
+\numberwithin{figure}{section}
+\numberwithin{theorem}{section}
+
+\newcounter{ex}[section]
+\newenvironment{ex}[0]{
+
+	\refstepcounter{ex}
+    \subsection*{Example \theex .}
+    }
+    {
+    \subsection*{}
+    }
+\numberwithin{ex}{section}
+
+\def\real{\mathbb{R}}
+\def\complex{\mathbb{C}}
+\def\rat{\mathbb{Q}}
+\def\nat{\mathbb{N}}
+\def\integ{\mathbb{Z}}
+\def\mod#1{\mathbb{Z}_{#1}}
+\def\cpx{\mathbb{C}}
+
+\def\paren#1{\left(#1\right)}
+\def\sbrak#1{\left[#1\right]}
+\def\cbrak#1{\left\{#1\right\}}
+
+\def\ceil#1{\left\lceil #1 \right\rceil}
+\def\floor#1{\left\lfloor #1 \right\rfloor}
+\def\abs#1{\left\lvert #1 \right\rvert}
+\def\abrak#1{\left\langle #1 \right\rangle}
+\def\bra#1{\left\langle #1 \right\rvert}
+\def\ket#1{\left\lvert #1 \right\rangle}
+\def\braket#1#2{\left\langle #1 \left.\right\lvert #2 \right\rangle}
+
+\def\jand{\quad\text{and}\quad}
+\def\jor{\quad\text{or}\quad}
+\def\for{\quad\text{for }\,}
+
+\def\ieval#1#2{\Bigg|^{#2}_{#1}}
+\def\deval#1{\bigg|_{#1}}
+
+\def\diff#1#2{\frac{d#1}{d#2}}
+\def\pdiff#1#2{\frac{\partial#1}{\partial#2}}
+
+\def\sec#1{\section*{#1}\addtocounter{section}{1}\setcounter{subsection}{0}}
+
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+    linkcolor=magenta,
+    pdfborderstyle={/S/U/W 1}
+}
+
+\setlength\extrarowheight{3pt}
+
+\title{\mytitle \\ [2ex] \Large \mysubtitle}
+\date{\small Modified \mydate}
+\author {Tyler Wang\thanks{
+\href{mailto:wangtyler123@gmail.com}{wangtyler123@gmail.com}}}
+
+\begin{document}
+\maketitle
+\section{Quadratics}
+Hopefully, this section will be mostly review, but because of the importance of this section for the future, reviewing this will be necessary so that moving forward, we will be on the same page. 
+\subsection{Factoring}
+In this first section, we are going to focus on factoring quadratics.
+When we say factoring, we mean to break down the polynomial into factors in the form $(x-p)$.
+As you know from previous math classes if we take work on the real numbers, then not every polynomial is factorable, so in general, we will try our best to find as many factors as we can.
+
+Now in the case of quadratic expressions, or polynomials of order 2, if the polynomial is factorable, we should expect to be able to write our factored quadratic in the form
+$$a(x-p)(x-q).$$
+We should expect exactly 2 factors since, if there's any less, than when expanding, we would not get the $x^2$ term, and if there's any more, then we would get a term of order higher than 2. 
+Expanding the previous expression gives:
+$$a(x^2+[(-p)+(-q)]x+(-p)(-q))$$
+Then in the case $a=1$, to factor a given polynomial, we require $(-p)+(-q)$ to be the coefficient for $x$, and $(-p)(-q)$ to be the constant.\footnote{
+I use $-p$ $-q$, so it might seem a bit confusing. If you'd like, you can write your factored form as $(x+p)(x+q)$, and you'd get $p+q$ as your $x$ coefficient and $pq$ as your constant}
+
+\begin{ex}
+In this example, we'd like to factor the expression
+$$x^2+3x-4$$
+Now since we require the two factors of -4 to add up to 3, we require the negative factor to be the smaller of the two. Now listing out factors of 4:
+$$4\cdot 1 =4$$
+$$2\cdot 2=4$$
+Therefore, since $4-1=3$, we let $-p=4$ and $-q=-1$ hence
+$$x^2+3x-4=(x+4)(x-1)$$
+\end{ex}
+\begin{ex}
+In this example, we'd like to factor the expression
+$$x^2-6x+8$$
+Since in this case, our constant is positive and our $x$ coefficient is negative, we should expect both $-p$ and $-q$ to be negative. Then listing our factors of $8$, we get
+$$8\cdot 1$$
+$$4\cdot 2$$
+Therefore, since $(-4)+(-2)=-6$, we the quadratic in factored form is
+$$(x-4)(x-2)$$
+\end{ex}
+
+Now suppose $a\neq1$, instead of leaving the $a$ outside the parenthesis, we will rewrite our factored form as
+$$(ax-p)(x-q).\footnotemark$$
+\footnotetext{This is equivalent to the previous expression if we substitute $ap$ for $p$ (remember $p$ is arbitrary so this is okay).}
+Therefore expanding the previous expression gives
+$$ax^2-(p+aq)x+pq$$
+We notice rearranging the expression gives
+$$ax^2-aqx-px+pq=ax(x-q)-p(x-q)$$
+$$=(ax-p)(x-q)$$
+hence we find by the expression y splitting the $x$ coefficient, we can factor it. 
+Also notice, the coefficients of our split $x$ term multiply to $apq$, which is exactly the product of our $x^2$ coefficient and the constant. We will leverage this idea in this next example.
+
+\begin{ex}
+	\label{ex:1st_sm}
+	In this example, we'd like to factor the expression
+	$$2x^2+7x+3$$
+	We notice since $2\cdot 3=6$, we'd like to split the middle term into two terms with coefficient with the product $6$. Running through all possible factors of $6$, we get
+	$$2x^2+6x+x+3$$
+	We factor and get
+	$$2x(x+3)+(x+3)=(2x+1)(x+3)$$
+\end{ex}
+
+\begin{ex}
+	In this second example, we'd like to factor the expression
+	$$6x^2+5x-6$$
+	We notice $6\cdot -6=-36$, so we like to find two numbers with the same product that sum to 5. Running through all the possibilities we notice since $$9\cdot -4=-36\jand 9-4=5$$
+	we get
+	$$6x^2+9x-4x+6$$
+	Then we factor and get
+	$$=3x(2x+3)-2(2x+3)=(3x-2)(2x+3)$$
+\end{ex}
+
+\subsection{Solving quadartics}
+Typically, when we say to solve a quadratic, what mean is that we want to find the roots of the expression, or in other words, what value of $x$ makes the expression give a value of 0? Let's try this as an example
+
+\begin{ex}
+	Using a polynomial which we factored from above, let's find the roots of
+	$$x^2-6x+8$$
+	Factoring the expression gives
+	$$(x-4)(x-2)$$
+	Since we want to find when this expression equals zero, we require
+	$$(x-4)(x-2)=0$$
+	Notice here, that we cannot just divide a factor out, since we could be inadvertently dividing by zero. 
+	But what we can say is if the entire expression is 0, there must be a factor that is zero.\footnote{
+	Typically in math, we would also have to prove that this is true for real numbers, but this would complicate things a little too much, so we will take this as fact.}
+	Hence either
+	$$x-4=0 \jor x-2=0$$
+	therefore $x=\{4,2\}$\footnote{
+	This is the reason I had $p$ and $q$ listed with a negative sign before, since then $p$ and $q$ would represent the roots of the expression.}
+\end{ex}
+
+\begin{ex}
+	In this example, let's find the roots of the expression 
+	$$2x^2+7x+3$$
+	As in example \eqref{ex:1st_sm}, this factors to
+	$$(2x+1)(x+3)$$
+	Removing the $2$ from inside the parenthesis, we get
+	$$2(x+\frac{1}{2})(x+3)$$
+	Then since we are finding the roots, we require
+	$$2(x+\frac{1}{2})(x+3)=0$$
+	Here, we can divide out the $2$ since $2\neq0$. Actually, in general, we can always divide that coefficient, 
+	since it cannot be zero, or our entire expression is identically zero.
+	Therefore, we now require
+	$$(x+\frac{1}{2})(x+3)=0$$
+	and using the same idea as before
+	$$x=\{\frac{1}{2},-3\}$$
+\end{ex}
+
+Now as you might've noticed in the previous example, the roots of the expression exactly match the $-p$ and $-q$ quantities as defined in the previous section about factoring. We can actually generalize this idea with the following theory:
+
+\begin{theorem}
+	If $f(x)$ is any polynomial of any arbitrary degree, then $(x-p)$ is a factor if and only if \footnotemark $f(p)=0$.
+	\label{thm:zero}
+\end{theorem}
+\footnotetext{If you're unfamiliar with the term \textit{if and only if}, if we say $A$ if and only if $B$, then we imply if $A$ then $B$ and if $B$ then $A$, or in other words, the implication goes both ways.}
+\begin{proof}
+	For this proof, we most show tht $(x-p)$ being a factor implies $f(p)=0$ and $f(p)=0$ implies
+	$(x-p$ is a factor of $f$.
+	
+	To prove the first statement, since $(x-p)$ is a factor of $f$, there exists some polynomial $g(x)$ such that
+	$$f(x)=(x-p)g(x)$$
+	Therefore, trivially, $f(p)=0$.
+	
+	Then to prove the second statement, we first start by showing this statement is true for $p=0$.
+	Suppose $h$ is a polynomial such that $h(0)=0$.
+	Since we know every polynomial of order $n$ can be written as
+	$$h(x)=a_nx^n+a_{n-1}x^{n-1}+...+a_1x+a_0$$
+	for constants $\{a_n,a_{n-1},...,a_1,a_0\}$.
+	Then if $h(0)=0$,
+	$$h(0)=a_n(0)^n+a_{n-1}(0)^{n-1}+...+a_1(0)+a_0$$
+	$$=a_0=0$$
+	Therefore
+	$$h(x)=a_nx^n+a_{n-1}x^{n-1}+...+a_1x$$
+	$$=x(a_nx^{n-1}+a_{n-2}x^{n-1}+...+a_1)$$
+	hence for some arbitrary polynomial
+	$$g(x)=a_nx^{n-1}+a_{n-2}x^{n-1}+...+a_1$$
+	$$h(x)=xg(x)$$
+	Then let
+	$$f(x)=h(x-p)$$
+	This is okay since our only requirement on $f$ was that $f(p)=0$, and we can check that this is the case for our polynomial.
+	Since
+	$$f(x)=h(x-p)=(x-p)g(x)$$
+	which proves our theorem.
+\end{proof}
+
+\section{Polynomials of Higher Order}
+In this case, we wish to expand on the ideas established in the previous section for polynomials of order 2 or higher. 
+Now, unfortunately, this is going to get a little messy, and we will soon find there aren't always established methods for finding these factors, and most of the time we will have to resort to guessing and checking. 
+While there does exist the cubic formula and quartic formula (for orders 3 and 4, respectively) like the quadratic formula, it has been mathematically proven that a quartic (order 5) cannot exist.
+Therefore, to find these roots, we must resort to numerical methods, or in other words, strategic guessing.
+Unfortunately, since our brains can't work as fast as a computer, we will have to resort to a more primitive method of strategic guessing, but rest assured, with some practice, you will get the hang of this.
+
+\subsection{Polynomial Long Division}
+Now it might have been some time since the last time many of you have done long division, but let's try a few examples to jog your memory.
+\begin{ex}
+	In this example, let's try to divide $x^2+2x-7$ by $x-2$.
+	\begin{align*}
+		x-2 \mid &\overline{x^2+2x-7} \\
+	\end{align*}
+	To begin, we wish to eliminate the leading term. To do so, we must multiply the left $x-2$ by $x$, hence
+	\begin{align*}
+		&x \\
+		x-2 \mid &\overline{x^2+2x-7} \\
+		&x^2-2x
+	\end{align*}
+	Then, like we did in elementary school, we subtract, hence
+	\begin{align*}
+		&x \\
+		x-2 \mid &\overline{x^2+2x-7} \\
+		&\underline{x^2-2x} \\
+		&4x-7
+	\end{align*}
+	Then repeating the same process, we get
+	\begin{align*}
+		&x +4 \\
+		x-2 \mid &\overline{x^2+2x-7} \\
+		&\underline{x^2-2x} \\
+		&4x-7 \\
+		&\underline{4x-8} \\
+		&1
+	\end{align*}
+	1 here is a reminder, since we can't divide that any further by $x-2$, so we can write
+	$$\frac{x^2+2x-7}{x-2}=x+4+\frac{1}{x-2}$$
+\end{ex}
+\begin{ex}
+	Let's try to find
+	$$\frac{6x^4-9x^2+3x+6}{x^2-2}$$
+	\begin{align*}
+				   & 6x^2 \\
+		x^2-2 \mid & \overline{6x^4-9x^2+3x+6} \\
+		           & \underline{6x^4-12x^2} \\
+		           & 3x^2+3x+6 \\
+	\end{align*}
+	\begin{align*}
+				   & 6x^2 + 3\\
+		x^2-2 \mid & \overline{6x^4-9x^2+3x+6} \\
+		           & \underline{6x^4-12x^2} \\
+		           & 3x^2+3x+6 \\
+		           & \underline{3x^2-6} \\
+		           & 3x+12
+	\end{align*}
+	hence
+	$$\frac{6x^4-9x^2+3x+6}{x^2-2}=6x^2+3+\frac{3x+12}{x^2-2}\footnotemark$$
+\end{ex}
+\footnotetext{Notice, we don't run into this issue here, but when a term is missing like the $x^3$ is here, we mustn't forget the polynomial is $6x^4+0x^3-9x^2+3x+6$. It didn't matter here, but it could in the future.}
+
+\subsection{Roots of Higher Order Polynomials}
+Armed with polynomial long division and theorem \eqref{thm:zero}, if we can show $f(p)=0$ for a polynomial $f$, then $(x-p)$ is a factor of $f$ that divides $f$ (hence no remainder).
+Let's try this as an example.
+
+\begin{ex}
+	Let's try to factor the expression 
+	$$x^3-6x^2-x+30.$$
+	First, we need to try to find a factor by guessing and checking. 
+	We can do this by plugging in what we think will be a factor in our polynomial. To make our lives easier, we will assume our polynomial only has integer roots.
+	This is not always the case in general, but making our assumption allows us not to waste too much time trying random fractions.
+	Here I will skip all of the guessing and try $-2$. Since for $x=-2$\footnote{
+	Since all of our roots are assumed to be integers, it must follow every factor must the constant (try to see if you can show why this is the case).}
+	$$(-2)^3-6(-2)^2-(-2)+30=0$$
+	hence $(x-2)$ must be a factor.
+	I will skip showing the long division here since it's not easy to type out, but we find
+	$$\frac{x^3-6x^2-x+30}{x-2}=x^2-8x+15$$
+	Then factoring the resulting quadratic we find
+	$$x^2-8x+15=(x-5)(x-3)$$
+	hence we can write our cubic as
+	$$(x+2)(x-5)(x-3)$$
+	with roots
+	$$x=\{-2,5,3\}$$
+\end{ex}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
