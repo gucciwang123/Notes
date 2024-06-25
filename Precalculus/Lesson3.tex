@@ -54,6 +54,7 @@
 \newmdtheoremenv{prop}{Proposition}
 \newmdtheoremenv{define}{Definition}
 \newmdtheoremenv{theorem}{Theorem}
+\newmdtheoremenv{cor}{Corollary}
 
 \numberwithin{lemma}{section}
 \numberwithin{equation}{section}
@@ -61,6 +62,7 @@
 \numberwithin{prop}{section}
 \numberwithin{figure}{section}
 \numberwithin{theorem}{section}
+\numberwithin{cor}{section}
 
 \newcounter{ex}[section]
 \newenvironment{ex}[0]{
@@ -69,7 +71,7 @@
     \subsection*{Example \theex .}
     }
     {
-    \subsection*{}
+    \par
     }
 \numberwithin{ex}{section}
 
@@ -128,7 +130,7 @@ In this first section, we are going to focus on factoring quadratics.
 When we say factoring, we mean to break down the polynomial into factors in the form $(x-p)$.
 As you know from previous math classes if we take work on the real numbers, then not every polynomial is factorable, so in general, we will try our best to find as many factors as we can.
 
-Now in the case of quadratic expressions, or polynomials of order 2, if the polynomial is factorable, we should expect to be able to write our factored quadratic in the form
+Now in the case of quadratic expressions or polynomials of order 2, if the polynomial is factorable, we should expect to be able to write our factored quadratic in the form
 $$a(x-p)(x-q).$$
 We should expect exactly 2 factors since, if there's any less, than when expanding, we would not get the $x^2$ term, and if there's any more, then we would get a term of order higher than 2. 
 Expanding the previous expression gives:
@@ -201,7 +203,7 @@ Typically, when we say to solve a quadratic, what mean is that we want to find t
 	Typically in math, we would also have to prove that this is true for real numbers, but this would complicate things a little too much, so we will take this as fact.}
 	Hence either
 	$$x-4=0 \jor x-2=0$$
-	therefore $x=\{4,2\}$\footnote{
+	therefore $x=\{4,2\}$.\footnote{
 	This is the reason I had $p$ and $q$ listed with a negative sign before, since then $p$ and $q$ would represent the roots of the expression.}
 \end{ex}
 
@@ -343,6 +345,206 @@ Let's try this as an example.
 	with roots
 	$$x=\{-2,5,3\}$$
 \end{ex}
+
+\section{Complex Numbers}
+In this section, we will discuss introduce the notion of complex numbers. The most important symbol when talking about complex numbers is that we let
+$$i=\sqrt{-1}$$
+In this section, we will only introduce this idea and not go into too much detail yet. Let's first give a brief definition of complex numbers.
+\begin{define}
+	Define $\complex=\{a+ib:a,b\in\real\}$. Then $z\in\complex$ is said to be a complex number.
+\end{define}
+
+Notice because of the way we define the complex numbers, the set of all complex numbers isn't ordered, so there isn't a notion of a larger complex number. Even still there is a notion of distance, but before we discuss that, let's discuss one of the most important operations of a complex number: the conjugate.
+
+\begin{define}
+Let $z\in\complex$. If $a,b\in\real$ such that $z=a+ib$, then the conjegate $\bar{z}=a-ib$.	
+\end{define}
+Keeping this in mind, let's prove some basic properties of the conjugate. 
+\begin{theorem}
+\label{thm:conjpassthrough}
+Let $z_1,z_2\in\complex$. Then the following are true:
+\begin{enumerate}
+	\item $\overline{(z_1+z_2)}=\bar{z_1}+\bar{z_2}$
+	\item $\overline{(z_1\cdot z_2)}=\bar{z_1}\cdot \bar{z_2}$
+\end{enumerate}	
+\end{theorem}
+\begin{proof}
+	Let
+	$$z_1=a_1+ib_1 \jand z_2=a_2+ib_2$$
+	Then
+	$$\bar{z_1}+\bar{z_2}=(a_1-ib_1)+(a_2-ib_2)=(a_1+a_2)-i(b_1+b_2)$$
+	$$=\overline{(z_1+z_2)}$$
+	since $\overline{(z_1+z_2)}=(a_1+a_2)-i(b_1+b_2)$, this proves (1).
+	
+	Then to prove $(2)$:
+	$$\bar{z_1}\cdot \bar{z_2}=(a_1-ib_1)(a_2-ib_2)=a_1a_2-ia_2b_1-ia_1b_2-b_1b_2$$
+	$$=(a_1a_2-b_1b_2)-i(a_1b_2+a_2b_1)$$
+	Then since 
+	$$\overline{(z_1\cdot z_2)}=\overline{(a_1+ib_1)(a_2+ib_2)}$$
+	$$=\overline{[a_1a_2+ia_2b_1+ia_1b_2-b_1b_2]}=\overline{[(a_1a_2-b_1b_2)+i(a_1b_2+a_2b_1)]}$$
+	$$=(a_1a_2-b_1b_2)-i(a_1b_2+a_2b_1)$$
+	hence proving the theorem.
+\end{proof}
+
+\begin{cor}
+	Let $z\in\complex$. Then $\overline{(z^n)}=(\bar{z})^n$, for any $n\in\integ$.\footnotemark
+\end{cor}
+\footnotetext{Notice, we only prove this theorem for integer powers, when in fact, this corollary holds for any $n$, even complex.
+But for this, we would need a more generalized definition of the exponential, and even still we would first need to prove it for integer powers before we can prove the general case.}
+\begin{proof}
+	Since by definition of the exponential,
+	$$\overline{z^n}=\underbrace{\overline{z\cdot z\cdot ... \cdot z}}_n$$
+	Then by theorem \eqref{thm:conjpassthrough},
+	$$=\overline{z}\cdot \overline{z} \cdot ... \cdot \overline{z}$$
+	$$=(\overline{z})^n$$
+\end{proof}
+
+\begin{theorem}
+\label{thm:modsq}
+Let $z\in\complex$. Then $z\bar z\in[0,\infty)$.	
+\end{theorem}
+\begin{proof}
+	Let $a,b\in\real$ such that $z=a+ib$. Then
+	$$z\bar z=(a+ib)(a-ib)=a^2+abi-abi-b^2=a^2-b^2$$
+	Multiplication is closed under multiplication and subtraction, we conclude $a^2+b^2\in\real$. Then since $a^2+b^2\ge 0$, this implies $a^2+b^2\in[0,\infty)$ hence proving the theorm.
+\end{proof}
+
+\begin{theorem}
+\label{thm:addreal}
+Let $z\in\complex$. Then $z+\bar{z}\in\real$	
+\end{theorem}
+\begin{proof}
+	Since $z=a+ib$, for $a,b\in\real$,
+	$$z+\bar z=a+ib+a-ib=2a$$
+	Since $2a\in\real$, $z+\bar z\in\real$ hence proving the theorem.
+\end{proof}
+
+
+\section{Algebric Completeness}
+\subsection{Fundemental Theorem of Algebra}
+As I noted above, not every polynomial can be factored completely, but why isn't this the case?
+The answer to this question lies in the fact that the real numbers are not \textit{algebraicly complete}.
+A big advantage of using complex numbers as opposed to real numbers is that complex numbers are algebraically complete, or in other words, every polynomial of degree $n$ can be completely factored into a series of $n$ binomial of degree 1. We illustrate this in the following theorem.
+
+\begin{theorem}[\textbf{Fundemental Theorem of Algebra\footnotemark}]
+\label{thm:fta}
+	Let $P_n(z)$\footnotemark be a $n$ degree polynomial of order $n$ with complex coefficients. Then $P_n(z)$ has exactly $n$ roots, counting multiplicity.
+\end{theorem}
+\addtocounter{footnote}{-1}
+\footnotetext{Ironiclly, because this theorem requires complex analysis to prove (which is like complex calculus), this theorem is neither fundamental nor a theorem about algebra.}
+\stepcounter{footnote}
+\footnotetext{Generally, we use the variable $z$ for complex numbers.}
+
+\begin{proof}
+	Postponed indefinitely.
+\end{proof}
+
+The only thing I think might be slightly confusing to some students is the notion of multiplicity. Let's illustrate this idea using an example.
+\begin{ex}
+Let's find all the roots of the following polynomial:
+$$x^3-5 x^2+8 x-4$$
+First, by assumption, this polynomial only has integer roots. Then by this assumption, since $4$ is divisible by $1,2,4$. Since this is a third-order polynomial, if it's completely factorable, we should have 3 factors, implying we must find 3 numbers that have a product of $-4$. Therefore, we can conclude the roots must be $1,2,2$, with one or all of them being negative. We try the root $-1$ first. Since if $x=1$, the polynomial simplifies to
+$$(1)^3-5(1)^2+8(1)-4=0.$$
+Then by theorem \eqref{thm:zero}, we know $(x-1)$ must be a factor. Then removing this factor using polynomial long division, we get the polynomial
+$$x^2-4x+4$$
+which factors to $(x-2)^2$, hence we conclude the final factor of our cubic is
+$$(x-2)^2(x-1)$$
+Since the factor $(x-2)$ occurs twice in the factoring, we claim this polynomial has the roots $x=\{1,2\}$, with the root $x=2$ having a multiplicity of 2, which satisfies theorem \eqref{thm:fta}.
+\end{ex}
+
+\begin{ex}
+	In this example, let's examine all the roots (real or complex) of the expression
+	$$x^3-1$$
+	Naively, we might be tempted to move the 1 to the other side and take the cube root but doing so gets us
+	$$x^3=1$$
+	$$x=\sqrt[3]{1}=1$$
+	Since this is the only root we can find in this manner, using theorem \eqref{thm:zero} and theorem \eqref{thm:fta},
+we conclude by saying $1$ is a root of multiplicity 3 implying 
+$$x^3-1=(x-1)^3$$
+which is false. Now at this point, we might question the validity of the theorem, since our algebra is seemingly flawless here.
+
+Let's reexamine the situation here. Since we know $1$ is a root, let's divide out the factor $x-1$ from our polynomial. Performing polynomial long division, we get
+$$\frac{x^3-1}{x-1}=x^2-x+1$$
+Then using the quadric formula,\footnote{
+If you don't remember, $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$}
+we get the remaining roots to be
+$$\frac{1}{2}\pm \frac{i\sqrt{3}}{2}$$
+hence we conclude there are 3 roots to the polynomial and using theorem \eqref{thm:zero}, we conclude with
+$$x^3-1=(x-1)\paren{x-\frac{1}{2}+\frac{i\sqrt{3}}{2}}\paren{x-\frac{1}{2}-\frac{i\sqrt{3}}{2}}$$
+So what went wrong for the first time around? Well, as it turns out, like the square root, when we take the codomain of the function to be complex, we find the cube root actually gives 3 roots, which exactly correspond to the roots of the expression, but we will see how to find these values in a later lesson. 
+\end{ex}
+
+\subsection{Factoring of Real Polynomials}
+As established with theorem \eqref{thm:fta}, every polynomial can be factored completely to a first-order binomial, but exactly how much factoring is guaranteed for real polynomials? Before we can answer that question, we have to answer a few smaller questions.
+
+\begin{theorem}
+\label{thm:conjpair}
+Suppose $z\in\complex$ is a root of polynomial $P_n$ of arbitrary order $n$ with real coefficients. Then $\bar{z}$ is also a root.\footnotemark	
+\end{theorem}
+\footnotetext{Though it doesn't hurt to include them, we can exclude the real numbers in this theorem since the conjugate of a real number is itself: it's essentially a tautology for real roots.}
+\begin{proof}
+	Since
+	$$P_n(z)=\sum^n_{k=0}a_kz^n$$
+	where $a_k\in\real$. If $z$ is a root of $P_n$, then
+	$$\sum^n_{k=0}a_kz^n=0$$
+	Then taking the conjugate of both sides
+	$$\overline{\sum^n_{k=0}a_kz^n}=
+	\sum^n_{k=0}\overline{a_kz^n}=
+	\sum^n_{k=0}\overline{a_k}\overline{z^n}=
+	\sum^n_{k=0}a_k\overline{z}^n=0$$
+	by theorem \eqref{thm:conjpassthrough}. Therefore $\bar{z}$ is a root of $P_n$, proving the theorem.
+\end{proof}
+
+\begin{lemma}
+\label{lem:realpoly}
+Let $z\in\complex$. Then $((x-z)(x-\bar z))^n$ is a real polynomial, for any $n\in\mathbb{W}$.
+\end{lemma}
+\begin{proof}
+	Since
+	$$(x-z)(x-\bar z)=x^2-\bar z x -zx+z\bar z=x^2-(x^2-(z+\bar z)+z\bar z)$$
+	By theorems \eqref{thm:modsq} and \eqref{thm:addreal},
+	$(x-z)(x-\bar z)$ is a real polynomial. 
+	Since the multiplication of real polynomials stays real, by closure properties of real numbers, $((x-z)(x-\bar z))^n$ must be a real polynomial.
+\end{proof}
+
+
+\begin{lemma}
+\label{lem:same-mult}
+	Let $P_n$ be a real polynomial of order $n$. If $z$ is a root of $P_n$ then $\bar z$ must be a root of the same multiplicity.
+\end{lemma}
+\begin{proof}
+	This proof will be by contradiction. Assume there exists a real polynomial $P_n$ with root $z$ of multiplicity $p$ and $\bar z$ of multiplicity $q$ such that $p\neq q$. 
+	Without loss of generality, let $p>q$.
+	Then by theorem \eqref{thm:zero},
+	$$P_n(x)=(x-z)^p(x-\bar z)^q g(x)$$
+	for $g$ is some arbitrary polynomial.
+	Then dividing $P_n$ by $(x-z)^q(x-\bar z)^q$ results in a real polynomial, by lemma \eqref{lem:realpoly} and closure properties of polynomial long division.
+	Therefore the leftover polynomial is
+	$$(x-z)^{p-q} g(x)$$
+	Since $z$ is a root of this polynomial, but $\bar z$ is not a root, this contradicts the fact this is a real polynomial by theorem \eqref{thm:conjpair}. Therefore, by contradiction, if $z$ is a root of $P_n$ then $\bar z$ must be a root of the same multiplicity.
+\end{proof}
+\begin{theorem}
+\label{thm:factor-quad}
+Let $P_n$ be any real polynomial of order $n$. Then $P_n$ can be factored up to the quadratic.	
+\end{theorem}
+\begin{proof}
+	Suppose $P_n$ has complex $m$ complex roots (counting multiplicity) $z_1,z_2,...,z_m$ (included as many times as its multiplicity in this list). 
+	Then $\bar z_1,\bar z_2,...,\bar z_m$ must also be roots of $P_n$ with the same multiplicity by lemma \eqref{lem:same-mult}. Then let $w_1,w_2,...,w_l$ be the remaining real roots of $P_n$. Then
+	$$P_n(x)=\sbrak{\prod^m_{k=1}(x-z_k)(x-\bar z_k)}
+	\sbrak{\prod^l_{k=1}(x-w_k)}\footnotemark$$
+	$$=\sbrak{\prod^m_{k=1}(x^2-z_kx-\bar z_k x-z_k\bar z_k)}
+	\sbrak{\prod^l_{k=1}(x-w_k)}$$
+	Since $x^2-z_kx-\bar z_k x-z_k\bar z_k$ is a real polynomial, this proves our theorem.
+\end{proof}
+
+\begin{cor}
+Let $P_n$ be a real polynomial such that $n$ is odd. Then there exists at least one real root.	
+\end{cor}
+\begin{proof}
+	We prove this corollary by contradiction. Suppose there exists $P_n$ that doesn't have any real roots. Then by theorem \eqref{thm:factor-quad} and theorem \eqref{thm:zero}, it must be factored into a series of second-ordered polynomials. Hence
+	$$P_n(x)=\prod_k g_k(x)$$
+	where $g_k(x)$ are second-ordered polynomials. But since the degree on the right-hand side must be even, this contradicts the fact $P_n$ is odd, hence by contradiction, $P_n$ must have at least one real root. 
+\end{proof}
 
 
 \end{document}
