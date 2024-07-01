@@ -1,6 +1,7 @@
 FROM sotetsuk/pdflatex
 
-ADD * /
+ADD *.tex /
+ADD assets /assets
 
 ADD build.sh /
 

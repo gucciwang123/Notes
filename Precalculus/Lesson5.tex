@@ -125,10 +125,10 @@
 \maketitle
 \section{Exponentials}
 \subsection{Exponentials for Reals}
-Before we dive into this topic, we must define the idea of taking an exponential, with the domain being the real numbers. Traditional exponentials have the disadvantage of only working with integer values or rational numbers. 
+Before we dive into this topic, we must define the idea of taking an exponential, with the domain being the real numbers. Traditional exponentials have the disadvantage of only working with integer values or rational numbers.
 However, the problem is that the rational numbers are only a very small subset of the set of real numbers.\footnote{
 The set of rational numbers is so small that the entire set doesn't even take up "space" in the real numbers. It is what's called a \textit{\href{https://en.wikipedia.org/wiki/Null_set}{null set}.}}
-So for our purposes, we need something a little better. 
+So for our purposes, we need something a little better.
 For our definition, we'd like to seek a nice connected function that outputs the same values as the discrete exponent and also satisfies all of the properties that the discrete case does.
 Unfortunately, this definition is quite a calculus heavily so I will leave that discussion for another class. For our class, we will only so we will only look over a few of its properties.
 \begin{theorem}
@@ -147,7 +147,7 @@ We can in fact verify these properties quite easily if we shrink the domain to j
 	\centering
 	\begin{tikzpicture}
 		\begin{axis}
-			\addplot[thick, color=blue, samples=100]{exp(x)};	
+			\addplot[thick, color=blue, samples=100]{exp(x)};
 		\end{axis}
 	\end{tikzpicture}
 	\caption{}
@@ -165,7 +165,7 @@ $$\mathcal{D}=\real \jand a^\mathcal{D}=(0,+\infty).$$
 	\centering
 	\begin{tikzpicture}
 		\begin{axis}
-			\addplot[thick, color=blue, domain=-10:10, samples=100]{ln(x)};	
+			\addplot[thick, color=blue, domain=-10:10, samples=100]{ln(x)};
 		\end{axis}
 	\end{tikzpicture}
 	\caption{}
@@ -190,7 +190,7 @@ Now we have the definition of the logarithm, let's look at some of its propertie
 	$$\log_a(a^{\log_a(xy)})=\log_a(a^{\log_a(x)+\log_a(y)})$$
 	$$\log_a(xy)=\log_a(x)+\log_a(y).$$
 	hence proving (1).
-	
+
 	Then since
 	$$a^{y\log_a(x)}=x^y=a^{\log(x^y)}$$
 	Taking the logarithm of both sides:
@@ -202,7 +202,7 @@ Now we have the definition of the logarithm, let's look at some of its propertie
 \subsection{Change of Basis}
 \begin{theorem}
 Let $a,b\in(0,\infty)$ and $x\in\real$. Then
-$$a^x=b^{\log_b(a)x}$$	
+$$a^x=b^{\log_b(a)x}$$
 \label{thm:changeofexp}
 \end{theorem}
 \begin{proof}
@@ -214,7 +214,7 @@ $$a^x=b^{\log_b(a)x}$$
 \begin{theorem}
 	Let $a,b\in(0,\infty)$ and $x\in\real$. Then
 	$$\log_a(x)=\frac{\log_b(x)}{\log_b(a)}$$
-	
+
 	\label{thm:changeoflog}
 \end{theorem}
 \begin{proof}
@@ -231,16 +231,16 @@ $$a^x=b^{\log_b(a)x}$$
 
 What theorems \eqref{thm:changeofexp} and \eqref{thm:changeoflog} tell us is that we can write any exponential as an exponential function of any other base.
 
-The utility of theorems \eqref{thm:changeofexp} and \eqref{thm:changeoflog} might not be immediately clear, so let's discuss it here. 
-Like $\pi$, there is a number $e\approx 2.71828$ which is also irrational that we often use in the context of exponentials. $e$ can be thought of as a preferred basis when working with exponentials, due to its special properties. 
+The utility of theorems \eqref{thm:changeofexp} and \eqref{thm:changeoflog} might not be immediately clear, so let's discuss it here.
+Like $\pi$, there is a number $e\approx 2.71828$ which is also irrational that we often use in the context of exponentials. $e$ can be thought of as a preferred basis when working with exponentials, due to its special properties.
 We will not discuss the special properties of this number, since it relates heavily to calculus, but we will introduce the notation to get you familiar with the idea.
 For example, using theorem \eqref{thm:changeofexp}, we can write the function
 $$f(x)=2^x$$
 as
 $$f(x)=e^{\log_e(x)x}$$
-Because of how fundamental $e^x$ is in the context of exponentials, we give it a special name: $\exp(x)$ (where exp stands for exponential). 
+Because of how fundamental $e^x$ is in the context of exponentials, we give it a special name: $\exp(x)$ (where exp stands for exponential).
 The advantage of this notation is that sometimes, with longer arguments, it's a little easier to read, but it also highlights that although similar, the $\real$ exponential and the discrete version are distinct mathematical operations.
-Additionally, we also define a special function for $\log_e(x)$ called $\ln(x)$, or natural logarithm (or \textit{logarithme naturel}  in French). 
+Additionally, we also define a special function for $\log_e(x)$ called $\ln(x)$, or natural logarithm (or \textit{logarithme naturel}  in French).
 
 Although we started by defining an exponential with an arbitrary base, in modern mathematics, we first define $\exp(x)$ (or $\ln(x)$) since we view $e^x$ and $\ln(x)$ as more fundamental than an exponential with an arbitrary base (hence why its called \textit{natrual} log). Hopefully, in a future math class, the reason for this will become clearer, but for this class, we will end our discussion here.
 
@@ -255,15 +255,15 @@ Although we started by defining an exponential with an arbitrary base, in modern
 			\begin{tikzpicture}
  				\draw[thick,black] (0,0) circle (2);
  				\filldraw[thick,black] (0,0) coordinate (O) circle (0.05) node[above left] {$O$};
- 		
+
  				\filldraw (1.41,1.41) coordinate (A) circle (0.05) node[right] {$(x,y)$};
- 		
+
  				\draw[thick,blue,->] (0,0) -- (2.5,2.5) ;
- 			
+
  				\draw[thick,<->] (-3,0) -- (3,0) coordinate (B) node[above] {$+x$};
  				\draw[thick,<->] (0,-3) -- (0,3) node[right] {$+y$};
- 		
- 				\draw pic["$\theta$", draw,->, black, thick, fill=red, fill opacity=0.3, angle radius=1cm] {angle = B--O--A}; 
+
+ 				\draw pic["$\theta$", draw,->, black, thick, fill=red, fill opacity=0.3, angle radius=1cm] {angle = B--O--A};
 			\end{tikzpicture}
 	\end{center}
 \end{define}
@@ -272,15 +272,15 @@ Although we started by defining an exponential with an arbitrary base, in modern
 
 Then using definition \eqref{def:trigdefine}, we can define the other trig functions in the conventional manner:
 $$\tan(x)=\frac{\sin(x)}{\cos(x)}
-\for x\in \cbrak{x\in\real: x\neq \frac{\pi}{2}+\pi n, \: 
+\for x\in \cbrak{x\in\real: x\neq \frac{\pi}{2}+\pi n, \:
 \forall n\in\nat}$$
-$$\cot(x)=\frac{\cos(x)}{\sin(x)} 
-\for \cbrak{x\in\real :x\neq\pi n, \: 
+$$\cot(x)=\frac{\cos(x)}{\sin(x)}
+\for \cbrak{x\in\real :x\neq\pi n, \:
 \forall n\in\nat}$$
-$$\csc(x)=\frac{1}{\sin(x)} \for \cbrak{x\in\real :x\neq\pi n, \: 
+$$\csc(x)=\frac{1}{\sin(x)} \for \cbrak{x\in\real :x\neq\pi n, \:
 \forall n\in\nat}$$
-$$\text{sec}(x)=\frac{1}{\cos(x)} 
-\for x\in \cbrak{x\in\real: x\neq \frac{\pi}{2}+\pi n, \: 
+$$\text{sec}(x)=\frac{1}{\cos(x)}
+\for x\in \cbrak{x\in\real: x\neq \frac{\pi}{2}+\pi n, \:
 \forall n\in\nat}$$
 
 Then to find the image, trivially from the definition \eqref{def:trigdefine}, $|\sin(x)|,|\cos(x)\le 1$, hence the image of $\sin(x)$ and $\cos(x)$ is the interval $[-1,1]$.
@@ -289,13 +289,13 @@ Then immediately, since $\csc(x)$ and $\text{sec}(x)$ are just the recipricals o
 Finding the image of $\tan(x)$ and $\cot(x)$ can be a bit more tricky, but we will leverage a computer to help us do this. Using figures \eqref{fig:tan} and \eqref{fig:cot}, we see the image of our two functions is $\real$.
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.6]{Lesson5/tanplot.png}
+	\includegraphics[scale=0.6]{assets/Lesson5/tanplot.png}
 	\caption{Plot of $\tan(x)$}
 	\label{fig:tan}
 \end{figure}
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.6]{Lesson5/cotplot.png}
+	\includegraphics[scale=0.6]{assets/Lesson5/cotplot.png}
 	\caption{Plot of $\cot(x)$}
 	\label{fig:cot}
 \end{figure}
@@ -305,7 +305,7 @@ Finding the image of $\tan(x)$ and $\cot(x)$ can be a bit more tricky, but we wi
 \begin{theorem}
 \label{thm:perod}
 $\sin(x)$ and $\cos(x)$ are $2\pi$ periodic, or equivalently,
-$$\sin(x)=\sin(x+2\pi) \jand \cos(x)=\cos(x+2\pi)$$	
+$$\sin(x)=\sin(x+2\pi) \jand \cos(x)=\cos(x+2\pi)$$
 \end{theorem}
 \begin{proof}
 	Since $\sin(x)$ $\cos(x)$ are defined on the unit circle, the angle can be represented $x$ can be more generally written as
@@ -366,7 +366,7 @@ $\tan(x)$, $\cot(x)$ are $\pi$ periodic
 \end{proof}
 
 \begin{cor}
-	$\tan(x)$,$\cot(x)$,$\csc(x)$ are odd, and $\text{sec}(x)$ is even.	
+	$\tan(x)$,$\cot(x)$,$\csc(x)$ are odd, and $\text{sec}(x)$ is even.
 \end{cor}
 \begin{proof}
 	Exercise.
@@ -378,7 +378,7 @@ $\tan(x)$, $\cot(x)$ are $\pi$ periodic
 \begin{theorem}[Pythagorean Identity]
 \label{thm:pydi}
 Let $x\in\real$, then
-$$\cos^2(x)+\sin^2(x)=1$$	
+$$\cos^2(x)+\sin^2(x)=1$$
 \end{theorem}
 \begin{proof}
 	By definition \eqref{def:trigdefine}, the ordered pair $(\cos(x),\sin(x))$ lies on a unit circle. Therefore since a circle satisfies the relation
@@ -387,9 +387,9 @@ $$\cos^2(x)+\sin^2(x)=1$$
 	$$\cos^2(x)+\sin^2(x)=1$$
 \end{proof}
 \begin{cor}
-Let $x\in \cbrak{x\in\real: x\neq \frac{\pi}{2}+\pi n, \: 
+Let $x\in \cbrak{x\in\real: x\neq \frac{\pi}{2}+\pi n, \:
 \forall n\in\nat}$, then
-$$\text{sec}^2(x)=1+\tan^2(x)$$	
+$$\text{sec}^2(x)=1+\tan^2(x)$$
 \end{cor}
 \begin{proof}
 	Using theorem \eqref{thm:pydi},
@@ -401,7 +401,7 @@ $$\text{sec}^2(x)=1+\tan^2(x)$$
 \end{proof}
 
 \begin{cor}
-	Let $x\in \cbrak{x\in\real: x\neq \pi n, \: 
+	Let $x\in \cbrak{x\in\real: x\neq \pi n, \:
 \forall n\in\nat}$, then
 $$\csc^2(x)=1+\cot^2(x)$$
 \end{cor}
@@ -480,7 +480,7 @@ $$\sin(\alpha-\beta)=\sin(\alpha)\cos(\beta)-\cos(\alpha)\sin(\beta)$$
 	hence
 	$$\cos(x)+1=2\cos^2\paren{\frac{x}{2}}$$
 	$$\cos\paren{\frac{x}{2}}=\pm\sqrt{\frac{\cos(x)+1}{2}}$$
-	
+
 	Then again by theorem \eqref{thm:pydi},
 	$$\cos^2\paren{\frac{x}{2}}=1-\sin^2\paren{\frac{x}{2}}$$
 	is true.
@@ -535,7 +535,7 @@ $$\tan(x)=\cot\paren{\frac{\pi}{2}-x}$$
 	Then by theorem \eqref{thm:coscomp} and corollary \eqref{cor:sincomp},
 	$$\frac{\sin\paren{\frac{\pi}{2}-x}}{\cos\paren{\frac{\pi}{2}-x}}
 	=\frac{\cos(x)}{\sin(x)}=\cot(x)$$
-	
+
 	Then $\tan(x)=\cot\paren{\frac{\pi}{2}-x}$ follows immediately.
 \end{proof}
 
@@ -550,7 +550,7 @@ $$\text{sec}(x)=\csc\paren{\frac{\pi}{2}-x}$$
 	Then by theorem \eqref{thm:coscomp},
 	$$\frac{1}{\cos\paren{\frac{\pi}{2}-x}}
 	=\frac{\sin(x)}{\sin(x)}=\csc(x)$$
-	
+
 	Then $\text{sec}(x)=\csc\paren{\frac{\pi}{2}-x}$ follows immediately.
 \end{proof}
 
@@ -560,9 +560,9 @@ Now with these theorems, let's leverage them to prove a couple of identities in 
 \begin{ex}
 	Let's verify
 	$$\cos^2(x)-\tan^2(x)=2-\sin^2(x)-\text{sec}^2(x)$$
-	These types of problems are generally easiest if we establish which side we want to attack first. 
+	These types of problems are generally easiest if we establish which side we want to attack first.
 	This is usually arbitrary, but for our purposes, I'm going to choose the left side. Using our Pythagorean-esque identities, we establish
-	$$\cos^2(x)=1-\sin^2(x) \and 
+	$$\cos^2(x)=1-\sin^2(x) \and
 	\tan^2(x)=\text{sec}^2(x)-1$$
 	Then by substitution, we get
 	$$\cos^2(x)-\tan^2(x)=1-\sin^2(x)-(\text{sec}^2(x)-1)
@@ -573,12 +573,12 @@ Now with these theorems, let's leverage them to prove a couple of identities in 
 \begin{ex}
 	Let's verify
 	$$\tan(\alpha+\beta)=\frac{\tan(\alpha)+\tan{\beta}}{1+\tan(\alpha)\tan(\beta)}$$
-	
+
 	Using the theorems \eqref{thm:sumcos} and \eqref{thm:sumsin} and the definition of $\tan(x)$,
 	$$\tan(\alpha+\beta)=\frac{\sin(\alpha+\beta)}{\cos(\alpha+\beta)}
 	=\frac{\sin(\alpha)\cos(\beta)+\cos(\alpha)\sin(\beta)}
 	{\cos(\alpha)\cos(\beta)-\sin(\alpha)\sin(\beta)}.$$
-	Then multiplying by 
+	Then multiplying by
 	$$\frac{\frac{1}{\cos(\alpha)\cos(\beta)}}{\frac{1}{\cos(\alpha)\cos(\beta)}}$$
 	gives:
 	$$=\frac{\sin(\alpha)\cos(\beta)+\cos(\alpha)\sin(\beta)}
