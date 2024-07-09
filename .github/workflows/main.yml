@@ -19,14 +19,14 @@ jobs:
 
       - name: Build Images
         run: docker compose build --no-cache
-        
+
       - name: Build PDFs
         run: docker compose up
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: notes/
+          path: out/
 
   # Deployment job
   deploy:
