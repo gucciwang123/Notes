@@ -1,7 +1,7 @@
 *.pdf
 *.aux
 *.log
-notes
+out
 .*
 
 _site

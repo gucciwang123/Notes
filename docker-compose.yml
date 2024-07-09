@@ -1,7 +1,12 @@
-version: '3'
-
 services:
   precalc:
-    build: Precalculus
+    build: precalculus
     volumes:
-      - ./notes:/notes
+      - ./out:/out
+  site:
+    build: site
+    volumes:
+      - ./out:/out
+    depends_on:
+      precalc:
+        condition: service_completed_successfully

@@ -5,7 +5,7 @@ ADD assets /assets
 
 ADD build.sh /
 
-VOLUME /notes
+VOLUME /out
 
 WORKDIR /
 
