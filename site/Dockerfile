@@ -8,7 +8,7 @@ ADD src/Gemfile /app
 
 RUN bundle install
 
-ADD src /app/src
+ADD src /app
 ADD build.sh /app
 
 RUN touch Gemfile.lock

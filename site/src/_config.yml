@@ -29,7 +29,7 @@ defaults:
   - scope:
       path: '_pages'
     values:
-      permalink: /:basename:output_ext
+      permalink: /:basename
 
 include:
   - _pages
@@ -41,4 +41,4 @@ sass:
 google_analytics: G-EHTE346B6V
 
 menu-pages:
-  - Precalc
+  - Precalculus

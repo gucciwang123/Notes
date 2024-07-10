@@ -238,15 +238,15 @@ table {
   border: 1px solid $grey-color-light;
   tr {
     &:nth-child(even) {
-      background-color: lighten($grey-color-light, 6%);
+      background-color: lighten($background-color, 2%);
     }
   }
   th, td {
     padding: calc($spacing-unit / 3) calc($spacing-unit / 2);
   }
   th {
-    background-color: lighten($grey-color-light, 3%);
-    border: 1px solid darken($grey-color-light, 4%);
+    background-color: lighten($background-color, 25%);
+    border: 1px solid #FFFFFF;
     border-bottom-color: darken($grey-color-light, 12%);
   }
   td {

@@ -1,7 +1,6 @@
 JEKYLL_ENV=production
 
-cd src
+cp -r /out/Precalculus .
+bundle install
 
-mv /out/Precalculus .
-
-jekyll build -d /out
+bundle exec jekyll build -d /out

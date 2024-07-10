@@ -2,8 +2,6 @@
 	display: flex;
 	justify-content: space-between;
 
-	text-transform: uppercase;
-
 	font-size: clamp(0vh, 25px, 7vh);
 	font-weight: bold;
 
@@ -71,6 +69,7 @@
 		display: none;
 	}
 
+	font-weight: 500;
 }
 
 #menu-icon-container {
