@@ -2,7 +2,11 @@ FROM gucciwang123/notes-build:site
 
 ADD src/Gemfile /app/src
 
-RUN bundle install --path src
+WORKDIR /app/src
+
+RUN bundle install
+
+WORKDIR /app
 
 ADD src /app/src
 
