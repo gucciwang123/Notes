@@ -498,10 +498,25 @@ where $L\neq0$ and finite. Then
 $$\frac{1}{\lim_{x\to c}f(x)}=\lim_{x\to c}\sbrak{\frac{1}{f(x)}}$$
 \end{theorem}
 \begin{proof}
-	Since the limit exists for $f$, for every $\epsilon>0$, there exists $\delta>0$ such that every $x\neq0$ where $|x-c|<\delta$ implies
-	$$|f(x)-L|<\epsilon$$
+	Since the limit exists for $f$,
+	$$|f(x)-L|<\frac{|L|}{2} \for 0<|x-c|<\delta_1.$$
+	Since
+	$$|L|=|L+f(x)-f(x)|\ge |L-f(x)|+|f(x)|$$
+	$$=|f(x)-L|+|f(x)|<\frac{|L|}{2}+|f(x)|$$
+	hence
+	$$\frac{|L|}{2}<|f(x)|$$
+	$$\frac{1}{f(x)}<\frac{2}{|L|}$$
+	Since there also exists $\delta_2$ such that
+	$$|f(x)-L|<\frac{|L|^2}{2} \epsilon \for 0 <|x-c|<\delta_2$$
+	If we let $\delta=\min(\delta_1,\delta_2)$, for $0<|x-c|<\delta$ we have
+	$$|\frac{1}{f(x)}-\frac{1}{L}|=|\frac{L-f(x)}{Lf(x)}|$$
+	$$=\abs{\frac{1}{Lf(x)}}|L-f(x)|$$
+	$$=\abs{\frac{1}{Lf(x)}}|f(x)-L)|<\frac{1}{|L|}\frac{2}{|L|}|g(x)-L|$$
+	$$<\frac{2}{|L|^2}|g(x)-L|<\frac{2}{|L^2|}\frac{|L|^2}{2}\epsilon$$
+	$$=\epsilon.$$
+	Therefore
+	$$\frac{1}{\lim_{x\to c}f(x)}=\lim_{x\to c}\sbrak{\frac{1}{f(x)}}$$
 \end{proof}
-
 \end{document}
 
 
