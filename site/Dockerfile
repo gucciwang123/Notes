@@ -1,9 +1,9 @@
 FROM gucciwang123/notes-build:site
 
-ADD src/Gemfile /app
+ADD src/Gemfile /app/src
 
 RUN bundle install
 
-ADD src /app
+ADD src /app/src
 
 VOLUME /out
