@@ -1,4 +1,4 @@
-JEKYLL_ENV=production
+export JEKYLL_ENV="production"
 
 cp -r /out/Precalculus .
 bundle install
