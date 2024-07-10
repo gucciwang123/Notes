@@ -1,12 +1,14 @@
-FROM sotetsuk/pdflatex
+FROM pandoc/core:latest-ubuntu
 
-ADD *.tex /
-ADD assets /assets
-
-ADD build.sh /
-
+WORKDIR /src
 VOLUME /out
 
-WORKDIR /
+RUN apt-get update && apt-get install texlive-latex-extra -y
+RUN
 
-CMD ./build.sh
+ADD build.sh /src
+ADD assets /src/assets
+ADD *.tex /src
+
+ENTRYPOINT ./build.sh
+

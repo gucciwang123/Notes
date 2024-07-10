@@ -1,8 +1,8 @@
+mkdir -p /out/Precalculus
+
 for i in *.tex;
-do pdflatex $i;
-	pdflatex $i;
+do
+	pdflatex $i
+	pdflatex $i
+	mv *pdf /out/Precalculus
 done
-
-mkdir out/Precalculus
-
-mv *.pdf out/Precalculus

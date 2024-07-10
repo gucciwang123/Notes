@@ -1,24 +1,21 @@
-title: Meta Title
-site-title: Your Site's Title
+title: Tyler Wang's Class Notes
+site-title: Class Notes
 subtitle: >- # this means to ignore newlines until "baseurl:"
-  Your Site's Subtitle
 description: >- # this means to ignore newlines until "baseurl:"
-  Your Site's Description
+  Links to all of Tyler Wang's class notes.
 baseurl: "" # add /blog
-url: "https://your.site" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://class.tylerwang.org" # the base hostname & protocol for your site, e.g. http://example.com
 
-email: your@email
-name: "Your Name"
+email: wangtyler123@gmail.com
+name: "Tyler Wang"
 about: >-
-  Your Infomriation <br/>
-  Line 1 <br/>
-  Line 2 <br/>
+  University of Illinois Urbana-Champaign<br/>
+  Physics BS <br/>
+  Mathematics BSLAS <br/>
 social:
-  instagram: your_insta
-  github: your_github
-  twitter: your_twitter
-  youtube: your-youtube
-  linkedin: https://your-linkdedin-link
+  github: gucciwang123
+  linkedin: https://www.linkedin.com/in/tyler-wang-472261213/
+  website: https://tylerwang.org
 
 # Build settings
 markdown: kramdown
@@ -41,8 +38,7 @@ sass:
   sass_dir: _sass
   style: compressed
 
-google_analytics: google_analytic-id
+google_analytics: G-EHTE346B6V
 
 menu-pages:
-  - "about"
-  - "blog"
+  - Precalc
